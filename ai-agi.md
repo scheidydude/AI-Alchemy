@@ -1,0 +1,1 @@
+Artificial General Intelligence (AGI) is a theoretical form of AI that matches or exceeds human cognitive abilities across all tasks, capable of learning, reasoning, and adapting across diverse domains. Unlike current "narrow" AI, AGI possesses general intelligence, contextual understanding, and common sense. It represents a major, yet unachieved, goal of AI research.
