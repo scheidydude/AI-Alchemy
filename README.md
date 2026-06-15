@@ -23,7 +23,7 @@ A curated collection of prompting frameworks, templates, and tools for getting h
 
 | File | What It Is |
 |------|-----------|
-| [`context-handoff.md`](context-handoff.md) | Prompt that generates a `HANDOFF.md` so a fresh Claude Code session picks up exactly where you left off — no lost momentum. |
+| [`context-handoff.md`](context-handoff.md) | Prompt that generates a `HANDOFF.md` so a fresh Claude Code session picks up exactly where you left off — no lost momentum. **Tip:** turn this into a reusable `/handoff` slash command (see below). |
 | [`claude-status-line.md`](claude-status-line.md) | Setup prompt for a Claude Code statusline showing model, token usage, directory, and git state. |
 | [`claude-code-getting-started.md`](claude-code-getting-started.md) | Getting started guide for Claude Code. |
 | [`claude-code-hooks.md`](claude-code-hooks.md) | Hook recipes for auto-lint, auto-format, test-on-save, desktop notifications, audit logging, and blocking dangerous commands. |
@@ -61,6 +61,14 @@ Structured reflection templates in [`after-action-reviews/`](after-action-review
 Each file is a standalone resource — copy the prompt text directly into your AI session, or use as a reference when crafting your own prompts.
 
 For Claude Code tools, follow the instructions at the top of each file.
+
+### Turn `context-handoff.md` into a `/handoff` slash command
+
+Make the handoff prompt one keystroke away in any Claude Code session. Paste this into Claude Code:
+
+> Read `context-handoff.md` from this repo and install it as a project slash command at `.claude/commands/handoff.md` (or `~/.claude/commands/handoff.md` for user scope). Use the file's prompt body as the command body, add YAML frontmatter with a short `description`, and confirm the path. After install, `/handoff` should generate a `HANDOFF.md` for the current session.
+
+Then run `/handoff` at end of session — fresh session picks up via "read HANDOFF.md and continue".
 
 ## License
 
