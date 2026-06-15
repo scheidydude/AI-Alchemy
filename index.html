@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'none';
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+  img-src 'self' data:;
+  font-src 'self' data:;
+  connect-src 'self';
+  base-uri 'none';
+  form-action 'none';
+  frame-ancestors 'none';
+" />
+<title>AI Alchemy</title>
+<link id="gh-md-theme" rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.9.0/github-markdown-light.css"
+      integrity="sha384-4+yp2IvYOqcJcR9WCGb7S9CwgoCBD4qxmEMxnXjwpM54P0M/z05F3YkC+NFunWrc"
+      crossorigin="anonymous" />
+<link id="hljs-theme" rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/styles/github.css"
+      integrity="sha384-Uhn9VRzdRxBVYRT2aPFl8ECva7znqyZwWiqpE3v4GTBe8y2XrpwTWZtU1U5vujcN"
+      crossorigin="anonymous" />
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #59636e;
+    --border: #d1d9e0;
+    --accent: #0969da;
+    --header-bg: #f6f8fa;
+  }
+  html[data-theme="dark"] {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #9198a1;
+    --border: #30363d;
+    --accent: #4493f8;
+    --header-bg: #161b22;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px; background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+  }
+  header .title { font-weight: 600; }
+  header .title a { color: var(--fg); text-decoration: none; }
+  nav.crumbs { color: var(--muted); font-size: 14px; }
+  nav.crumbs a { color: var(--accent); text-decoration: none; }
+  .actions { display: flex; gap: 8px; align-items: center; }
+  button.toggle {
+    background: transparent; border: 1px solid var(--border); color: var(--fg);
+    border-radius: 6px; padding: 6px 10px; cursor: pointer; font-size: 14px;
+  }
+  button.toggle:hover { border-color: var(--accent); }
+  main.markdown-body {
+    max-width: 920px; margin: 0 auto; padding: 32px 24px 64px;
+    background: var(--bg); color: var(--fg);
+  }
+  html[data-theme="dark"] .markdown-body {
+    --color-canvas-default: var(--bg);
+    --color-fg-default: var(--fg);
+    --color-border-default: var(--border);
+    --color-border-muted: var(--border);
+    --color-canvas-subtle: var(--header-bg);
+    --color-accent-fg: var(--accent);
+    --color-neutral-muted: rgba(110,118,129,0.4);
+  }
+  .markdown-body pre, .markdown-body blockquote { position: relative; }
+  .copy-btn {
+    position: absolute; top: 6px; right: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; padding: 0;
+    background: var(--bg); color: var(--muted);
+    border: 1px solid var(--border); border-radius: 6px;
+    cursor: pointer; opacity: 0; transition: opacity .12s, color .12s, border-color .12s;
+  }
+  .markdown-body pre:hover .copy-btn,
+  .markdown-body blockquote:hover .copy-btn,
+  .copy-btn:focus, .copy-btn.copied { opacity: 1; }
+  .copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .copy-btn.copied { color: #1a7f37; border-color: #1a7f37; }
+  .loading { color: var(--muted); padding: 24px; }
+  .error { color: #cf222e; padding: 24px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="title"><a href="#README.md">⚗️ AI Alchemy</a></div>
+  <nav class="crumbs" id="crumbs"></nav>
+  <div class="actions">
+    <a class="toggle" href="https://github.com/scheidydudes/AI-Alchemy" target="_blank" rel="noopener">GitHub</a>
+    <button class="toggle" id="themeBtn" title="Toggle theme">🌙</button>
+  </div>
+</header>
+<main class="markdown-body" id="content">
+  <div class="loading">Loading…</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"
+        integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"
+        integrity="sha384-XQqX/4yiUGu+oyr87jvWzRuqBUK/adrY0DunhL+tID9m/9dwSpV8h9Fk/Sg6ifVQ"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/core.min.js"
+        integrity="sha384-+dy3l+YXXxDDO7TlMPgmufxOa7PGnd6jpwEDf5daqoejGVVmTWfYhoD0REpOSIMh"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/common.min.js"
+        integrity="sha384-G1iI5trr0DuWJ4NYPelg1hUJ294nf3Zswb/slEY9TdRDWg+AAog8pt8symR7wDpZ"
+        crossorigin="anonymous"></script>
+<script>
+  const themeBtn = document.getElementById('themeBtn');
+  const hljsTheme = document.getElementById('hljs-theme');
+  const ghMdTheme = document.getElementById('gh-md-theme');
+  const LIGHT_HLJS = {
+    href: 'https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/styles/github.css',
+    sri: 'sha384-Uhn9VRzdRxBVYRT2aPFl8ECva7znqyZwWiqpE3v4GTBe8y2XrpwTWZtU1U5vujcN'
+  };
+  const DARK_HLJS = {
+    href: 'https://cdn.jsdelivr.net/npm/highlight.js@11.10.0/styles/github-dark.css',
+    sri: 'sha384-s+/XrBtU6QDoYle5GTN5r/bD998lHLNZbk0ywd2wxEgwwxx64zJpPP2Lu2kSyZsK'
+  };
+  const LIGHT_GHMD = {
+    href: 'https://cdn.jsdelivr.net/npm/github-markdown-css@5.9.0/github-markdown-light.css',
+    sri: 'sha384-4+yp2IvYOqcJcR9WCGb7S9CwgoCBD4qxmEMxnXjwpM54P0M/z05F3YkC+NFunWrc'
+  };
+  const DARK_GHMD = {
+    href: 'https://cdn.jsdelivr.net/npm/github-markdown-css@5.9.0/github-markdown-dark.css',
+    sri: 'sha384-nlth4oyFjBlAziFH2oypWWsE00W7j/6uVR4/Fz1++oPhaqeF8LujWsaX3ChXZw/1'
+  };
+
+  function setStyle(el, def) {
+    el.setAttribute('integrity', def.sri);
+    el.setAttribute('crossorigin', 'anonymous');
+    el.href = def.href;
+  }
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️' : '🌙';
+    setStyle(hljsTheme, t === 'dark' ? DARK_HLJS : LIGHT_HLJS);
+    setStyle(ghMdTheme, t === 'dark' ? DARK_GHMD : LIGHT_GHMD);
+    localStorage.setItem('theme', t);
+  }
+  const saved = localStorage.getItem('theme')
+    || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(saved);
+  themeBtn.addEventListener('click', () =>
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  marked.setOptions({
+    gfm: true, breaks: false,
+    highlight: (code, lang) => {
+      try {
+        return lang && hljs.getLanguage(lang)
+          ? hljs.highlight(code, { language: lang }).value
+          : hljs.highlightAuto(code).value;
+      } catch { return code; }
+    }
+  });
+
+  const content = document.getElementById('content');
+  const crumbs = document.getElementById('crumbs');
+
+  const esc = s => String(s).replace(/[&<>"']/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  const SAFE_PATH = /^[\w./-]+$/;
+  function isSafePath(p) {
+    return typeof p === 'string'
+      && SAFE_PATH.test(p)
+      && !p.startsWith('/')
+      && !p.startsWith('.')
+      && !p.includes('..')
+      && !/^([a-z]+:)?\/\//i.test(p)
+      && /\.(md|markdown|txt)$/i.test(p);
+  }
+
+  function resolvePath(base, rel) {
+    const baseDir = base.includes('/') ? base.slice(0, base.lastIndexOf('/') + 1) : '';
+    const url = new URL(baseDir + rel, 'http://x/');
+    return url.pathname.replace(/^\//, '');
+  }
+
+  function isExternal(href) {
+    return /^([a-z]+:)?\/\//i.test(href) || href.startsWith('mailto:');
+  }
+
+  async function load(path) {
+    if (!isSafePath(path)) {
+      content.innerHTML = '<div class="error">Refusing to load unsafe path: <code>'
+        + esc(path) + '</code></div>';
+      setCrumbs('README.md');
+      return;
+    }
+    content.innerHTML = '<div class="loading">Loading ' + esc(path) + '…</div>';
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+      const text = await res.text();
+      renderMarkdown(text, path);
+      window.scrollTo(0, 0);
+    } catch (e) {
+      content.innerHTML = '<div class="error">Failed to load <code>' + esc(path) + '</code>: '
+        + esc(e.message)
+        + '<br><br>Tip: serve with a local HTTP server (e.g. <code>python3 -m http.server</code>) — <code>file://</code> blocks fetch.</div>';
+    }
+    setCrumbs(path);
+  }
+
+  function setCrumbs(path) {
+    if (path === 'README.md') { crumbs.textContent = ''; return; }
+    crumbs.innerHTML = '<a href="#README.md">home</a> / ' + esc(path);
+  }
+
+  function renderMarkdown(md, path) {
+    const raw = marked.parse(md);
+    content.innerHTML = DOMPurify.sanitize(raw, { USE_PROFILES: { html: true } });
+    content.querySelectorAll('pre code').forEach(b => { try { hljs.highlightElement(b); } catch {} });
+    rewriteLinks(path);
+    rewriteImages(path);
+    addCopyButtons();
+  }
+
+  function addCopyButtons() {
+    content.querySelectorAll('pre, blockquote').forEach(block => {
+      if (block.querySelector(':scope > .copy-btn')) return;
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Copy to clipboard');
+      btn.title = 'Copy';
+      btn.innerHTML = copyIcon();
+      btn.addEventListener('click', async () => {
+        const text = (block.querySelector('code')?.innerText ?? block.innerText).trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.innerHTML = checkIcon();
+          btn.classList.add('copied');
+          setTimeout(() => { btn.innerHTML = copyIcon(); btn.classList.remove('copied'); }, 1500);
+        } catch {}
+      });
+      if (getComputedStyle(block).position === 'static') block.style.position = 'relative';
+      block.appendChild(btn);
+    });
+  }
+
+  function copyIcon() {
+    return '<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg>';
+  }
+  function checkIcon() {
+    return '<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 1 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>';
+  }
+
+  function rewriteLinks(basePath) {
+    content.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href || isExternal(href)) {
+        if (isExternal(href)) { a.target = '_blank'; a.rel = 'noopener'; }
+        return;
+      }
+      if (href.startsWith('#')) return;
+      const [pathPart, hash] = href.split('#');
+      const resolved = pathPart ? resolvePath(basePath, pathPart) : basePath;
+      a.href = '#' + resolved + (hash ? '#' + hash : '');
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        location.hash = a.getAttribute('href');
+      });
+    });
+  }
+
+  function rewriteImages(basePath) {
+    content.querySelectorAll('img[src]').forEach(img => {
+      const src = img.getAttribute('src');
+      if (!src || isExternal(src) || src.startsWith('/')) return;
+      img.src = resolvePath(basePath, src);
+    });
+  }
+
+  function route() {
+    const raw = location.hash.replace(/^#/, '') || 'README.md';
+    const [path, anchor] = raw.split('#');
+    load(path).then(() => {
+      if (anchor) {
+        const el = document.getElementById(anchor) || document.querySelector('[name="' + anchor + '"]');
+        if (el) el.scrollIntoView();
+      }
+    });
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+</script>
+</body>
+</html>

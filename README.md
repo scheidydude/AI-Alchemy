@@ -1,4 +1,4 @@
-# AI Alchemy (Turning Ideas into Gold)
+# Scheidy's AI Alchemy (Turning Ideas into Gold)
 
 A curated collection of prompting frameworks, templates, and tools for getting high-quality results from AI models — particularly Claude and Claude Code.
 
