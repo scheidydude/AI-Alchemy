@@ -24,7 +24,8 @@ A curated collection of prompting frameworks, templates, and tools for getting h
 | File | What It Is |
 |------|-----------|
 | [`context-handoff.md`](context-handoff.md) | Prompt that generates a `HANDOFF.md` so a fresh Claude Code session picks up exactly where you left off — no lost momentum. **Tip:** turn this into a reusable `/handoff` slash command (see below). |
-| [`claude-status-line.md`](claude-status-line.md) | Setup prompt for a Claude Code statusline showing model, token usage, directory, and git state. |
+| [`claude-code-statusline.md`](claude-code-statusline.md) | Setup prompt for a Claude Code statusline showing model, token usage, directory, and git state. |
+| [`claude-code-statusline-bedrock.md`](claude-code-statusline-bedrock.md) | AWS Bedrock variant of the Claude Code statusline — same model, token usage, directory, and git state data via Bedrock APIs. |
 | [`claude-code-getting-started.md`](claude-code-getting-started.md) | Getting started guide for Claude Code. |
 | [`claude-code-hooks.md`](claude-code-hooks.md) | Hook recipes for auto-lint, auto-format, test-on-save, desktop notifications, audit logging, and blocking dangerous commands. |
 | [`claude-code-memory.md`](claude-code-memory.md) | What to put in `CLAUDE.md`, how to structure it, and how to combine project memory with session handoffs. |

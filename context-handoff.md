@@ -3,7 +3,7 @@
 > **How to use:** Paste everything below the `---` into Claude Code when context is getting heavy. It will produce a `HANDOFF.md` in the repo. Then run `/clear` and start your next session: *"Read HANDOFF.md and confirm you're ready to continue."*
 
 ---
-
+```text
 # Create a Context Handoff Document
 
 Write a handoff document so a fresh Claude Code session can pick up exactly where we left off — no lost momentum, no re-litigating settled decisions, no repeated mistakes.
@@ -74,3 +74,4 @@ A short, copy-pasteable instruction to get the next session rolling:
 **The test:** Next session reads only `HANDOFF.md` and the repo, makes the next meaningful commit within five minutes, asks the user nothing that was already settled.
 
 When done, show me the file path and a one-paragraph summary so I can sanity-check before clearing.
+```
