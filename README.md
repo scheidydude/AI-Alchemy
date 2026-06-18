@@ -67,7 +67,7 @@ For Claude Code tools, follow the instructions at the top of each file.
 
 Make the handoff prompt one keystroke away in any Claude Code session. Paste this into Claude Code:
 
-> Read `context-handoff.md` from this repo and install it as a project slash command at `.claude/commands/handoff.md` (or `~/.claude/commands/handoff.md` for user scope). Use the file's prompt body as the command body, add YAML frontmatter with a short `description`, and confirm the path. After install, `/handoff` should generate a `HANDOFF.md` for the current session.
+> Read `context-handoff.md` from this repo and install it as a user scope slash command at `~/.claude/commands/handoff.md`. Use the file's prompt body as the command body, add YAML frontmatter with a short `description`, and confirm the path. After install, `/handoff` should generate a `HANDOFF.md` for the current session.
 
 Then run `/handoff` at end of session — fresh session picks up via "read HANDOFF.md and continue".
 
