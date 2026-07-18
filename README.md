@@ -18,6 +18,7 @@ A curated collection of prompting frameworks, templates, and tools for getting h
 | [`chain-of-thought-patterns.md`](chain-of-thought-patterns.md) | When and how to use CoT — zero-shot, few-shot, self-consistency, tree of thought, and reflection patterns. |
 | [`prompt-personas.md`](prompt-personas.md) | Reusable persona blocks: expert editor, devil's advocate, Socratic tutor, strategist, and more. Drop into any prompt. |
 | [`meta-prompting.md`](meta-prompting.md) | Use AI to write, critique, stress-test, and iterate on your own prompts. |
+| [`diagram_house_style.md`](diagram_house_style.md) | Reusable visual standard for architecture diagrams — theme system (mode x domain x skin), layout grammar, icon catalog, connector rules, and a self-check list. |
 
 ### Claude Code Tools
 
